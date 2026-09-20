@@ -3,7 +3,7 @@ package arraylist.sistema.inventario.dinamico;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class ArrayListSistemaInventarioDinamico {
+public class InventarioProductos {
 
     public static Scanner sc;
     public static ArrayList<String> listaProductos = new ArrayList<>();
@@ -42,10 +42,10 @@ public class ArrayListSistemaInventarioDinamico {
                     agregarProducto();
                     break;
                 case 3:
-                    System.out.println("Editando producto...");
+                   editarProducto();
                     break;
                 case 4:
-                    System.out.println("Eliminando producto....");
+                    eliminarProducto();
                     break;
 
             }
@@ -75,12 +75,39 @@ public class ArrayListSistemaInventarioDinamico {
         }
     }
 
-    public static void editarProducto() {
-
+   public static void editarProducto(){
+        System.out.println("de esta lista de productos cual deseea moddificar");
+        for(int i=0;  i<listaProductos.size(); i++){
+           System.out.println(""+i+"->"+listaProductos.get(i));
+        }
+        System.out.println("Elija una de las opciones a editar ");
+        int opcionEditar = sc.nextInt();
+        sc.nextLine();
+        System.out.println("con que nombre desea reemplazarlo?");
+        String nuevoNombre = sc.nextLine();
+        listaProductos.set(opcionEditar,nuevoNombre);
+        sc.nextLine();
     }
+
+    
 
     public static void eliminarProducto() {
+         System.out.println("que producto deseea eliminar?");
 
+        for (int i = 0; i < listaProductos.size(); i++) {
+            System.out.println(""+i+"->"+listaProductos.get(i));
+        }
+        System.out.println("Elija el producto que desea eliminar:");
+        int opcionEliminar = sc.nextInt();
+
+        listaProductos.remove(opcionEliminar);
+
+        System.out.println("se a eliminado correctamente.");
+        
+        
     }
-
+    
 }
+
+
+  
